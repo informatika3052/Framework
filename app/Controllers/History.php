@@ -15,7 +15,11 @@ class History extends BaseController
      public function index()
      {
           session();
+          if (is_null(session()->get('login'))) {
+               return redirect()->to(base_url('/home'));
+          }
           $dataSpk = $this->Customer_model->findAll();
+          // dd($dataSpk);
           $nameUser = session()->get('name');
 
           $data = [
@@ -38,15 +42,25 @@ class History extends BaseController
           $builder->join('req_order', 'req_order.id_spk= spk.id');
           $builder->like('id', $idSpk);
           $query = $builder->get()->getRowArray();
-          // dd($query);
+          if (is_null($query)) {
+               $dataSpkByid = $this->Customer_model->find($idSpk);
+               // dd($dataSpkByid);
 
-          $fakk = "fakk";
+               $data = [
+                    'title' => 'Data Service',
+                    'user' => $nameUser,
+                    'query' => $query,
+                    'dataSpk' => $dataSpk,
+                    'dataSpkByid' => $dataSpkByid
+               ];
+               return view('history/data_service_by_id',  $data);
+          }
           $data = [
                'title' => 'Data Service',
                'user' => $nameUser,
                'query' => $query,
                'dataSpk' => $dataSpk,
-               'fakk' => $fakk
+               // 'dataSpkByid' => $dataSpkByid
           ];
           // $data = [
           //      'query' => $query,
@@ -65,9 +79,8 @@ class History extends BaseController
           //      'akunulasi_total' => $query['akumulasi_total'],
           // ];
           // dd($data);
-          // session()->set($data);
+          // session()->set($data['query']);
           return view('history/data_service', $data);
-          // return redirect()->to(base_url('/history'));
      }
 }
 

@@ -56,7 +56,7 @@
                                                        <td><?= $m['id_mekanik']; ?></td>
                                                        <td><?= $m['name_mekanik']; ?></td>
                                                        <td><?= $m['divisi']; ?></td>
-                                                       <td><a class="btn btn-warning">Edit</a>
+                                                       <td><a href="<?= base_url('master/editMekanik/' . $m['id_mekanik']); ?>" class=" btn btn-warning tampil" data-toggle="modal" data-target="#newModalMekanik" data-bs-id="<?= $m['id_mekanik']; ?>">Edit</a>
                                                             <a href="<?= base_url('master/deleteMekanik/' . $m['id_mekanik']); ?>" class="btn btn-danger">Delete</a>
                                                        </td>
                                                   </tr>

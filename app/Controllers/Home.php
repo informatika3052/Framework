@@ -62,7 +62,8 @@ class Home extends BaseController
 			if ($password == $query['password']) {
 				$data = [
 					'email' => $query['email'],
-					'name' => $query['name']
+					'name' => $query['name'],
+					'login' => true,
 				];
 				session()->set($data);
 				return redirect()->to(base_url('master'));

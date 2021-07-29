@@ -48,6 +48,8 @@
     <script src="<?= base_url() ?>/template/docs/assets/js/adminlte.min.js"></script>
     <script src="<?= base_url() ?>/template/docs/assets/js/script.js"></script>
     <script src="<?= base_url() ?>/template/docs/assets/js/addReqOrder.js"></script>
+    <script src="<?= base_url() ?>/template/docs/assets/js/aditMekanik.js"></script>
+    <script src="<?= base_url() ?>/template/docs/assets/js/print.js"></script>
 
 </body>
 

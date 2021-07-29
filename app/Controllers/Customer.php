@@ -20,6 +20,10 @@ class Customer extends BaseController
      }
      public function index()
      {
+          session();
+          if (is_null(session()->get('login'))) {
+               return redirect()->to(base_url('/home'));
+          }
           $myTime = new Time('now', 'Asia/Jakarta', 'en_US');
           // $dataSpk = $this->Customer_model->findAll();
 
@@ -49,6 +53,9 @@ class Customer extends BaseController
      public function spk()
      {
           session();
+          if (is_null(session()->get('login'))) {
+               return redirect()->to(base_url('/home'));
+          }
           // $dataAllNameMekanik = $this->Customer_model->findAll();
           $nameUser = session()->get('name');
           $nameMekanik = session()->get('dataAllMekanik');
@@ -86,6 +93,10 @@ class Customer extends BaseController
 
      public function request()
      {
+          session();
+          if (is_null(session()->get('login'))) {
+               return redirect()->to(base_url('/home'));
+          }
           $nameUser = session()->get('name');
           $dataAllPart =  $this->Parts_model->findAll();
           $dataSpk = $this->Customer_model->findAll();
@@ -99,6 +110,10 @@ class Customer extends BaseController
      }
      public function addRequestOrder()
      {
+          session();
+          if (is_null(session()->get('login'))) {
+               return redirect()->to(base_url('/home'));
+          }
 
           // $email = $this->mRequest->getVar();
           // dd($email);
@@ -125,13 +140,24 @@ class Customer extends BaseController
           session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
           return redirect()->to(base_url('/customer/request'));
      }
-     // public function getUbah()
+     // public function serachInput()
      // {
-     //      $json = file_get_contents('php://input');
-     //      $data = json_decode($json);
-     //      // echo $data;
-     //      echo json_encode($this->Parts_model->find($data));
-     //      die();
-     //      // echo json_encode($this->model('Mahasiswa_model')->getMahasiswaById($data));
+     //      session();
+     //      if (is_null(session()->get('login'))) {
+     //           return redirect()->to(base_url('/home'));
+     //      }
+
+     //      // $email = $this->mRequest->getVar();
+     //      // dd($email);
+     //      $data = [
+     //           'part1' => $this->mRequest->getVar('part1'),
+     //           'part2' => $this->mRequest->getVar('part2'),
+     //           'part3' => $this->mRequest->getVar('part3'),
+
+     //      ];
+     //      dd($data);
+     //      // $this->Request_order->insert($data);
+     //      // session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
+     //      // return redirect()->to(base_url('/customer/request'));
      // }
 }

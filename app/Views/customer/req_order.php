@@ -78,7 +78,7 @@
                                                                  <option selected class="part">Choose Parts</option>
                                                                  <?= $i = 1; ?>
                                                                  <?php foreach ($dataAllPart as $n) : ?>
-                                                                      <option value="<?= $n['kd_part']; ?> "><?= $n['kd_part']; ?></option>
+                                                                      <option value="<?= $n['name_part']; ?> "><?= $n['name_part']; ?></option>
                                                                  <?php endforeach; ?>
                                                             </select>
                                                        </td>
@@ -93,7 +93,7 @@
                                                                  <option selected class="part">Choose Parts</option>
                                                                  <?= $i = 1; ?>
                                                                  <?php foreach ($dataAllPart as $n) : ?>
-                                                                      <option value="<?= $n['kd_part']; ?> "><?= $n['kd_part']; ?></option>
+                                                                      <option value="<?= $n['name_part']; ?> "><?= $n['name_part']; ?></option>
                                                                  <?php endforeach; ?>
                                                             </select>
                                                        </td>
@@ -108,7 +108,7 @@
                                                                  <option selected class="part">Choose Parts</option>
                                                                  <?= $i = 1; ?>
                                                                  <?php foreach ($dataAllPart as $n) : ?>
-                                                                      <option value="<?= $n['kd_part']; ?> "><?= $n['kd_part']; ?></option>
+                                                                      <option value="<?= $n['name_part']; ?> "><?= $n['name_part']; ?></option>
                                                                  <?php endforeach; ?>
                                                             </select>
                                                        </td>

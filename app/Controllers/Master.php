@@ -11,6 +11,7 @@ class Master extends BaseController
      protected $mRequest;
      public function __construct()
      {
+          session();
           // instansiasi data 
           $this->mRequest = service("request");
 
@@ -21,10 +22,12 @@ class Master extends BaseController
 
      public function index()
      {
-          session();
+
           // Get data dari Part_Model folder Model
           // $dataAllPart =  $this->Parts_model->findAll();
-
+          if (is_null(session()->get('login'))) {
+               return redirect()->to(base_url('/home'));
+          }
           // Menggunakn kondisi berdasarkan halaman berapa dia tampil
           $currentPage = $this->mRequest->getVar('page_dataAllPart') ? $this->mRequest->getVar('page_dataAllPart') : 1;
           // Memanggil session dari fungsi setelah Login
@@ -49,6 +52,9 @@ class Master extends BaseController
      }
      public function addParts()
      {
+          if (is_null(session()->get('login'))) {
+               return redirect()->to(base_url('/home'));
+          }
           // $email = $this->mRequest->getVar();
           // dd($email);
           $data = [
@@ -68,7 +74,9 @@ class Master extends BaseController
           session();
           // $dataAllMekanik =  $this->Mekanik_model->findAll();
           // dd($dataAllMekanik);
-
+          if (is_null(session()->get('login'))) {
+               return redirect()->to(base_url('/home'));
+          }
           // Menggunakn kondisi berdasarkan halaman berapa dia tampil
           $currentPage = $this->mRequest->getVar('page_dataAllMekanik') ? $this->mRequest->getVar('page_dataAllMekanik') : 1;
           $nameUser = session()->get('name');
@@ -90,6 +98,9 @@ class Master extends BaseController
      }
      public function addMekanik()
      {
+          if (is_null(session()->get('login'))) {
+               return redirect()->to(base_url('/home'));
+          }
           // $email = $this->mRequest->getVar();
           // dd($email);
           $data = [
@@ -98,24 +109,63 @@ class Master extends BaseController
                'divisi' => $this->mRequest->getVar('divisi')
           ];
           // dd($data);
-          $this->Mekanik_model->insert($data);
+          // $this->Mekanik_model->insert($data);
           session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
           return redirect()->to(base_url('/master/mekanik'));
      }
+     public function getUbah()
+     {
+          $json = file_get_contents('php://input');
+          $data = json_decode($json);
+          // echo $data;
+          echo json_encode($this->Mekanik_model->find($data));
+          die();
+          // echo json_encode($this->model('Mahasiswa_model')->getMahasiswaById($data));
+     }
+     public function editMekanik($id)
+     {
+          // $email = $this->mRequest->getVar('id');
+          // dd($id);
+          $data = [
+               'id_mekanik' => $this->mRequest->getVar('id_mekanik'),
+               'name_mekanik' => $this->mRequest->getVar('name_mekanik'),
+               'divisi' => $this->mRequest->getVar('divisi')
+          ];
+          dd($data);
+          $this->Mekanik_model->save($data);
+          session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
+          return redirect()->to(base_url('/master/mekanik'));
+          // $this->komikModel->save([
+
+          //      'id' => $id,
+          //      'judul' => $this->mRequest->getVar('judul'),
+          //      'slug' => $slug,
+          //      'penulis' => $this->mRequest->getVar('penulis'),
+          //      'penerbit' => $this->mRequest->getVar('penerbit'),
+          //      'sampul' => $namaSampul
+          //  ]);
+
+          //  session()->setFlashdata('pesan', 'Data berhasil diubah');
+          //  return redirect()->to('/komik');
+     }
+
      public function deleteMekanik($id)
      {
           $this->Mekanik_model->delete($id);
           session()->setFlashdata('pesan', 'Data berhasil dihapus');
           return redirect()->to(base_url('master/mekanik'));
      }
-     public function material()
-     {
-          $nameUser = session()->get('name');
-          $data = [
-               'title' => 'Stock kMaterial',
-               'user' => $nameUser
-          ];
+     // public function material()
+     // {
+     //      if (is_null(session()->get('login'))) {
+     //           return redirect()->to(base_url('/home'));
+     //      }
+     //      $nameUser = session()->get('name');
+     //      $data = [
+     //           'title' => 'Stock kMaterial',
+     //           'user' => $nameUser
+     //      ];
 
-          return view('master/stock_material', $data);
-     }
+     //      return view('master/stock_material', $data);
+     // }
 }

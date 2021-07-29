@@ -16,3 +16,47 @@
     border: none;
     font-size: 1.5em;
 }   
+
+
+.printsec{
+    background-color: blueviolet;
+    display: none;
+}
+.print-history{
+    display: none;
+}
+
+@media print {
+    body{
+        background-color: rgb(226, 131, 43) ;
+    }
+    .print-history{
+        display: block;
+    }
+    .content{
+    display: none;
+}
+    .printsec{
+        display: block;
+    }
+    
+.con-wrapper{
+    position: relative;
+    overflow: hidden;
+}
+.ms-auto.con1{
+    position: absolute;
+    top: 0;
+    right: -5%;
+}
+.main-footer{
+    display: none;
+}
+.print-tanda{
+    position: relative;
+}
+.img-none-border{
+    border: none;
+}
+
+}
