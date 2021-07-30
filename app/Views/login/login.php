@@ -39,7 +39,7 @@
                                    </div>
                               </div>
                          </div>
-                         <p class=" text-danger ml-2 mt-1"> <?= $validation->getError('email'); ?></p>
+
                          <div class="input-group mb-3">
                               <input type="password" class="form-control " id="password" name="password" placeholder="Password" value="<?= old('password'); ?>">
                               <div class="input-group-append">
@@ -47,7 +47,7 @@
                                         <span class="fas fa-lock"></span>
                                    </div>
                               </div>
-                              <p class=" text-danger ml-2 mt-1"> <?= $validation->getError('password'); ?></p>
+
                          </div>
                          <div class="row">
                               <!-- <div class="col-6"> -->

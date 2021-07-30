@@ -7,6 +7,7 @@ use CodeIgniter\I18n\Time;
 use App\Models\Customer_model;
 use App\Models\Parts_model;
 use App\Models\Request_order;
+use App\Models\Mekanik_model;
 
 class Customer extends BaseController
 {
@@ -17,6 +18,7 @@ class Customer extends BaseController
           $this->Customer_model = new Customer_model();
           $this->Parts_model = new Parts_model();
           $this->Request_order = new Request_order();
+          $this->Mekanik_model = new Mekanik_model();
      }
      public function index()
      {
@@ -56,9 +58,10 @@ class Customer extends BaseController
           if (is_null(session()->get('login'))) {
                return redirect()->to(base_url('/home'));
           }
-          // $dataAllNameMekanik = $this->Customer_model->findAll();
+          $nameMekanik =  $this->Mekanik_model->findAll();
+          // dd($dataAllMekanik);
           $nameUser = session()->get('name');
-          $nameMekanik = session()->get('dataAllMekanik');
+          // $nameMekanik = session()->get('dataAllMekanik');
           // dd($nameMekanik);
           $data = [
                'title' => 'Create Spk',
@@ -69,6 +72,7 @@ class Customer extends BaseController
      }
      public function createSpk()
      {
+
           // $email = $this->mRequest->getVar();
           // dd($email);
           $data = [
@@ -140,24 +144,4 @@ class Customer extends BaseController
           session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
           return redirect()->to(base_url('/customer/request'));
      }
-     // public function serachInput()
-     // {
-     //      session();
-     //      if (is_null(session()->get('login'))) {
-     //           return redirect()->to(base_url('/home'));
-     //      }
-
-     //      // $email = $this->mRequest->getVar();
-     //      // dd($email);
-     //      $data = [
-     //           'part1' => $this->mRequest->getVar('part1'),
-     //           'part2' => $this->mRequest->getVar('part2'),
-     //           'part3' => $this->mRequest->getVar('part3'),
-
-     //      ];
-     //      dd($data);
-     //      // $this->Request_order->insert($data);
-     //      // session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
-     //      // return redirect()->to(base_url('/customer/request'));
-     // }
 }

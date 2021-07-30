@@ -62,26 +62,7 @@ class History extends BaseController
                'dataSpk' => $dataSpk,
                // 'dataSpkByid' => $dataSpkByid
           ];
-          // $data = [
-          //      'query' => $query,
-          //      'created_at' => $query['created_at'],
-          //      'plat_number' => $query['plat_number'],
-          //      'type_kendaraan' => $query['type_kendaraan'],
-          //      'cust_name' => $query['cust_name'],
-          //      'cust_address' => $query['cust_address'],
-          //      'ser_advisor' => $query['ser_advisor'],
-          //      'mekanik' => $query['mekanik'],
-          //      'desc1' => $query['desc1'],
-          //      'desc2' => $query['desc2'],
-          //      'part1' => $query['part1'],
-          //      'part2' => $query['part2'],
-          //      'part3' => $query['part3'],
-          //      'akunulasi_total' => $query['akumulasi_total'],
-          // ];
-          // dd($data);
-          // session()->set($data['query']);
+
           return view('history/data_service', $data);
      }
 }
-
-// value="<?= $query['created_at']; 

@@ -109,7 +109,7 @@ class Master extends BaseController
                'divisi' => $this->mRequest->getVar('divisi')
           ];
           // dd($data);
-          // $this->Mekanik_model->insert($data);
+          $this->Mekanik_model->insert($data);
           session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
           return redirect()->to(base_url('/master/mekanik'));
      }
@@ -131,22 +131,10 @@ class Master extends BaseController
                'name_mekanik' => $this->mRequest->getVar('name_mekanik'),
                'divisi' => $this->mRequest->getVar('divisi')
           ];
-          dd($data);
+          // dd($data);
           $this->Mekanik_model->save($data);
           session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
           return redirect()->to(base_url('/master/mekanik'));
-          // $this->komikModel->save([
-
-          //      'id' => $id,
-          //      'judul' => $this->mRequest->getVar('judul'),
-          //      'slug' => $slug,
-          //      'penulis' => $this->mRequest->getVar('penulis'),
-          //      'penerbit' => $this->mRequest->getVar('penerbit'),
-          //      'sampul' => $namaSampul
-          //  ]);
-
-          //  session()->setFlashdata('pesan', 'Data berhasil diubah');
-          //  return redirect()->to('/komik');
      }
 
      public function deleteMekanik($id)
@@ -155,17 +143,4 @@ class Master extends BaseController
           session()->setFlashdata('pesan', 'Data berhasil dihapus');
           return redirect()->to(base_url('master/mekanik'));
      }
-     // public function material()
-     // {
-     //      if (is_null(session()->get('login'))) {
-     //           return redirect()->to(base_url('/home'));
-     //      }
-     //      $nameUser = session()->get('name');
-     //      $data = [
-     //           'title' => 'Stock kMaterial',
-     //           'user' => $nameUser
-     //      ];
-
-     //      return view('master/stock_material', $data);
-     // }
 }
