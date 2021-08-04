@@ -1,3 +1,5 @@
+## file .env nya hilang woii
+
 # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?
