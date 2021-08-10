@@ -37,7 +37,7 @@
                          <div class="card">
                               <!-- /.card-header -->
                               <div class="card-body">
-                                   <table class="table table-bordered table-responsive">
+                                   <table class="table table-bordered" id="list-mekanik">
                                         <thead>
                                              <tr>
                                                   <th style="width: 10px">#</th>
@@ -47,7 +47,6 @@
                                                   <th>Action</th>
                                              </tr>
                                         </thead>
-                                        <tbody>
                                         <tbody>
                                              <?php $i = 1 + (4 * ($currentPage - 1)); ?>
                                              <?php foreach ($dataAllMekanik as $m) : ?>
@@ -79,6 +78,8 @@
                               </div> -->
                          </div>
                     </div>
+               </div>
+          </div>
      </section>
 </div>
 <!-- /.card -->

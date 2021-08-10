@@ -2160,6 +2160,18 @@ pre code {
   }
 }
 
+@media (max-width: 575.98px) {
+  #list-mekanik {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #list-mekanik > .table-bordered {
+    border: 0;
+  }
+}
+
 @media (max-width: 991.98px) {
   .table-responsive-lg {
     display: block;
