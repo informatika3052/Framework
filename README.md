@@ -1,5 +1,15 @@
 # CodeIgniter 4 Application Starter
 
+
+## Setup
+
+Rename nama file env menjadi .env
+
+Copy `env` to `.env` and tailor for your app, specifically the baseURL
+and any database settings.
+
+
+
 ## What is CodeIgniter?
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
@@ -23,10 +33,6 @@ When updating, check the release notes to see if there are any changes you might
 to your `app` folder. The affected files can be copied or merged from
 `vendor/codeigniter4/framework/app`.
 
-## Setup
-
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
 
 ## Important Change with index.php
 
