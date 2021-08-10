@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // console.log('okkk');
             // e.preventDefault();
             const modalFooter = document.querySelector('.modal-footer button[type=submit]');
-            modalFooter.innerHTML = 'Ubah Data';
+            modalFooter.innerHTML = 'Update Data';
             document.querySelector('.modal-body form').setAttribute('action', 'http://localhost:8080/master/editMekanik');
 
             // console.log(curut);

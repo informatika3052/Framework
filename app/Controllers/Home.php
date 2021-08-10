@@ -28,6 +28,9 @@ class Home extends BaseController
 		return view('login/login', $data);
 	}
 
+
+	// Method yang berfungi untuk validasi data yang diinputkan user 
+
 	public function validateLogin()
 	{
 		if (!$this->validate([
@@ -49,14 +52,11 @@ class Home extends BaseController
 			return redirect()->to(base_url('home'))->withInput()->with('validation', $validation);
 		}
 
-		// $this->_checkLogin();
 		$db      = \Config\Database::connect();
 		$builder = $db->table('user');
 		$email =  $this->mRequest->getVar('email');
 		$password = $this->mRequest->getVar('password');
 		$query = $builder->getWhere(['email' => $email])->getRowArray();
-		// dd($query['is_active']);
-		// jika ada user nya 
 		if ($query) {
 			// cek password 
 			if ($password == $query['password']) {

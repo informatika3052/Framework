@@ -72,8 +72,6 @@ class Master extends BaseController
      public function mekanik()
      {
           session();
-          // $dataAllMekanik =  $this->Mekanik_model->findAll();
-          // dd($dataAllMekanik);
           if (is_null(session()->get('login'))) {
                return redirect()->to(base_url('/home'));
           }
@@ -122,18 +120,16 @@ class Master extends BaseController
           die();
           // echo json_encode($this->model('Mahasiswa_model')->getMahasiswaById($data));
      }
-     public function editMekanik($id)
+     public function editMekanik()
      {
-          // $email = $this->mRequest->getVar('id');
-          // dd($id);
+          $id_mekanik = $this->mRequest->getVar('id_mekanik');
+          // dd($id_mekanik);
           $data = [
-               'id_mekanik' => $this->mRequest->getVar('id_mekanik'),
                'name_mekanik' => $this->mRequest->getVar('name_mekanik'),
                'divisi' => $this->mRequest->getVar('divisi')
           ];
-          // dd($data);
-          $this->Mekanik_model->save($data);
-          session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
+          $this->Mekanik_model->update($id_mekanik, $data);
+          session()->setFlashdata('pesan', 'Data Berhasil Di Update !');
           return redirect()->to(base_url('/master/mekanik'));
      }
 

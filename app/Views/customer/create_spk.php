@@ -17,6 +17,7 @@
      <section class="content">
           <div class="container-fluid">
                <!-- SELECT2 EXAMPLE -->
+
                <div class="card card-default">
                     <form action="<?= base_url(); ?>/customer/createSpk" method="POST">
                          <div class="card-body">
@@ -24,22 +25,26 @@
                                    <div class="col-md-6">
                                         <div class="form-group">
                                              <label for="exampleNopol">Plat Number</label>
-                                             <input type="text" name="plat_number" class="form-control" id="exampleNopol">
+                                             <input type="text" name="plat_number" class="form-control" id="exampleNopol" value="<?= old('plat_number'); ?>">
                                         </div>
+                                        <p class=" text-danger ml-2 mt-1"> <?= $validation->getError('plat_number'); ?></p>
                                         <!-- /.form-group -->
                                         <div class="form-group">
                                              <label for="exampleCustName">Customer Name</label>
-                                             <input type="text" name="cust_name" class="form-control" id="exampleCustName">
+                                             <input type="text" name="cust_name" class="form-control" id="exampleCustName" value="<?= old('cust_name'); ?>">
                                         </div>
+                                        <p class=" text-danger ml-2 mt-1"> <?= $validation->getError('cust_name'); ?></p>
+
                                         <div class="form-group">
                                              <label for="exampleCustAddress">Customer Address</label>
-                                             <input type="text" name="cust_address" class="form-control" id="exampleCustAddress">
+                                             <input type="text" name="cust_address" class="form-control" id="exampleCustAddress" value="<?= old('cust_address'); ?>">
                                         </div>
+                                        <p class=" text-danger ml-2 mt-1"> <?= $validation->getError('cust_address'); ?></p>
                                         <!-- /.form-group -->
                                    </div>
                                    <!-- /.col -->
                                    <div class="col-md-6">
-                                        <div class="form-group ml-4">
+                                        <div class="form-group ">
                                              <label for="exampleEngine">Mekanik</label>
                                              <select class="form-control" name="mekanik">
                                                   <option selected>Choose Mekanik</option>
@@ -49,17 +54,20 @@
                                                   <?php endforeach; ?>
                                              </select>
                                         </div>
-                                        <div class="form-group ml-4">
+                                        <p class=" text-danger ml-2 mt-1"> <?= $validation->getError('name_mekanik'); ?></p>
+                                        <div class="form-group ">
                                              <label for="exampleEngine">Type Kendaraan</label>
-                                             <input type="text" name="type_kendaraan" class="form-control" id="exampleEngine">
+                                             <input type="text" name="type_kendaraan" class="form-control" id="exampleEngine" value="<?= old('type_kendaraan'); ?>">
                                         </div>
-                                        <div class="form-group ml-4">
+                                        <p class=" text-danger ml-2 mt-1"> <?= $validation->getError('type_kendaraan'); ?></p>
+                                        <div class="form-group ">
                                              <label for="exampleSA">Service Advisor</label>
-                                             <input type="text" name="ser_advisor" class="form-control" id="exampleSA">
+                                             <input type="text" name="ser_advisor" class="form-control" id="exampleSA" value="<?= old('ser_advisor'); ?>">
                                         </div>
+                                        <p class=" text-danger ml-2 mt-1"> <?= $validation->getError('ser_advisor'); ?></p>
                                    </div>
 
-                                   <table class="table table-bordered mt-3">
+                                   <table class="table table-bordered mt-3 table-responsive">
                                         <thead>
                                              <tr>
                                                   <!-- <th style="width: 10px">#</th> -->

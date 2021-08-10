@@ -12,6 +12,8 @@ class History extends BaseController
           $this->mRequest = service("request");
           $this->Customer_model = new Customer_model();
      }
+
+     // Method yang berfungsi untuk menampilkan data berdasarkan dari id SPK
      public function index()
      {
           session();
@@ -19,13 +21,11 @@ class History extends BaseController
                return redirect()->to(base_url('/home'));
           }
           $dataSpk = $this->Customer_model->findAll();
-          // dd($dataSpk);
           $nameUser = session()->get('name');
 
           $data = [
                'title' => 'Data Service',
                'user' => $nameUser,
-               // 'query' => $query,
                'dataSpk' => $dataSpk
           ];
           return view('history/data_service', $data);

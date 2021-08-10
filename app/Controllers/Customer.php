@@ -59,22 +59,64 @@ class Customer extends BaseController
                return redirect()->to(base_url('/home'));
           }
           $nameMekanik =  $this->Mekanik_model->findAll();
-          // dd($dataAllMekanik);
           $nameUser = session()->get('name');
-          // $nameMekanik = session()->get('dataAllMekanik');
-          // dd($nameMekanik);
           $data = [
                'title' => 'Create Spk',
                'user' => $nameUser,
                'nameMekanik' => $nameMekanik,
+               'validation' =>  \Config\Services::validation(),
           ];
           return view('customer/create_spk', $data);
      }
      public function createSpk()
      {
-
-          // $email = $this->mRequest->getVar();
-          // dd($email);
+          if (!$this->validate([
+               'plat_number' => [
+                    'rules' => 'required',
+                    'errors' => [
+                         'required' => 'The {field}  field is required',
+                    ]
+               ],
+               'cust_name' => [
+                    'rules' => 'required',
+                    'errors' => [
+                         'required' => 'The {field}  field is required',
+                    ]
+               ],
+               'cust_address' => [
+                    'rules' => 'required',
+                    'errors' => [
+                         'required' => 'The {field}  is required',
+                    ]
+               ],
+               'mekanik' => [
+                    'rules' => 'required',
+                    'errors' => [
+                         'required' => 'The {field}  is required',
+                    ]
+               ],
+               'type_kendaraan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                         'required' => 'The {field}  is required',
+                    ]
+               ],
+               'ser_advisor' => [
+                    'rules' => 'required',
+                    'errors' => [
+                         'required' => 'The {field}  is required',
+                    ]
+               ],
+          ])) {
+               $validation = \Config\Services::validation();
+               return redirect()->to(base_url('customer/spk'))->withInput()->with('validation', $validation);
+          }
+          // session()->setFlashdata('pesan', 'Wrong password!');
+          // session()->setFlashdata('pesan', 'Wrong password!');
+          // session()->setFlashdata('pesan', 'Wrong password!');
+          // session()->setFlashdata('pesan', 'Wrong password!');
+          // session()->setFlashdata('pesan', 'Wrong password!');
+          // session()->setFlashdata('pesan', 'Wrong password!');
           $data = [
                'plat_number' => $this->mRequest->getVar('plat_number'),
                'cust_name' => $this->mRequest->getVar('cust_name'),
@@ -89,12 +131,11 @@ class Customer extends BaseController
                'total' =>  $this->mRequest->getVar('total'),
                'created_at' =>  $this->mRequest->getVar('created_at'),
           ];
-          // dd($data);
           $this->Customer_model->insert($data);
-          // session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
           return redirect()->to(base_url('/customer/spk'));
      }
 
+     // Method yang berfungi untuk requets order
      public function request()
      {
           session();
@@ -112,6 +153,8 @@ class Customer extends BaseController
           ];
           return view('customer/req_order', $data);
      }
+
+     // Methodyang berfungsi untuk tambah/insert data 
      public function addRequestOrder()
      {
           session();
@@ -119,8 +162,7 @@ class Customer extends BaseController
                return redirect()->to(base_url('/home'));
           }
 
-          // $email = $this->mRequest->getVar();
-          // dd($email);
+
           $data = [
                'id_spk' => $this->mRequest->getVar('id_spk'),
                'nopol' => $this->mRequest->getVar('nopol'),
