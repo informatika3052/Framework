@@ -27,3 +27,10 @@ perPcs3.addEventListener('keyup', function () {
 perPcs3.addEventListener('keyup', function () {
     console.log(akumulasi_total.value = parseInt(total1.value) + parseInt(total2.value) + parseInt(total3.value));
 });
+
+
+
+
+
+
+// <td><textarea name="" id="" cols="30" rows="5" disabled><?= (!empty($query['total1']) ? $query['total1'] . " , " . $query['total2']  . " , " . $query['total3'] : "")  ?></textarea></td>

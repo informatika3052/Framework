@@ -97,29 +97,44 @@
                     <div class="card-body">
                          <div class="row">
                               <div class="col-md-12">
-                                   <table class="table table-bordered">
+                                   <table class="table table-bordered table-responsive">
                                         <thead>
                                              <tr>
-                                                  <th style="width: 25%;">Description</th>
                                                   <th style="width: 25%;">Replacement Parts</th>
                                                   <th style="width: 20%;">Cost</th>
+                                                  <th style="width: 25%;">Description</th>
                                              </tr>
                                         </thead>
                                         <tbody>
                                              <tr>
+                                                  <td><textarea name="" id="" cols="40" rows="5" value="" disabled><?= (!empty($query['part1']) ? $query['part1'] . " , " . $query['part2']  . " , " . $query['part3'] : "")  ?></textarea></td>
 
-                                                  <td><textarea name="" id="" cols="50" rows="5" value="" disabled><?= (!empty($query) ? $query['desc1'] . " , " . $query['desc2']  : "")  ?></textarea></td>
-                                                  <td><textarea name="" id="" cols="50" rows="5" value="" disabled><?= (!empty($query['part1']) ? $query['part1'] . " , " . $query['part2']  . " , " . $query['part3'] : "")  ?></textarea></td>
 
-                                                  <td><textarea name="" id="" cols="30" rows="5" disabled><?= (!empty($query['total1']) ? $query['total1'] . " , " . $query['total2']  . " , " . $query['total3'] : "")  ?></textarea></td>
+                                                  // <td><textarea name="" id="" cols="40" rows="5" disabled><?= (!empty($query['total1']) ? $query['total1'] . " , " . $query['total2']  . " , " . $query['total3'] : "")  ?></textarea></td>
+
+                                                  <td><textarea name="" id="" cols="40" rows="5" value="" disabled><?= (!empty($query) ? $query['desc1'] . " , " . $query['desc2']  : "")  ?></textarea></td>
+
+
                                                   <!-- <td></td> -->
                                              </tr>
 
                                         </tbody>
+                                        <tbody>
+                                             <tr>
+                                                  <td><label class=" col-form-label">Sub Total</label></td>
+                                                  <td> <input type="text" class="form-control" value="<?= (!empty($query['akumulasi_total']) ? $query['akumulasi_total'] : "")  ?>" disabled>
+                                                  </td>
+
+                                                  <td> <input type="text" class="form-control" value="<?= (!empty($query['total']) ? $query['total'] : "")  ?>" disabled>
+                                                  </td>
+
+                                             </tr>
+                                        </tbody>
                                         <tfoot>
                                              <tr>
+
                                                   <td> <label class=" col-form-label">Total</label></td>
-                                                  <td> <input type="text" class="form-control" value="<?= (!empty($query['akumulasi_total']) ? $query['akumulasi_total'] : "")  ?>" disabled></td>
+                                                  <td> <input type="text" class="form-control" value="<?= (!empty($totalAkhir) ? $totalAkhir : "")  ?>" disabled></td>
                                                   <td>
                                                        <div class="col">
                                                             <button class="btn col btn-primary" target="_BLANK" onclick="window.print()">
@@ -259,7 +274,7 @@
                          <div class="col d-flex">
                               <label for="staticEmail2" class="col-md-4 ">Total Cost</label>
                               <span class="col-md-2 ">:</span>
-                              <p> <?= (!empty($query['akumulasi_total']) ? $query['akumulasi_total'] : " "); ?></p>
+                              <p> <?= (!empty($totalAkhir) ? $totalAkhir : " "); ?></p>
                          </div>
                     </form>
                </div>

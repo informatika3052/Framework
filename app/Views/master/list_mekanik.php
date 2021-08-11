@@ -67,15 +67,6 @@
 
                               <!-- Memanggil method link dengan mengisi data dari contoller method mekanik -->
                               <?= $pager->links('dataAllMekanik', 'orang_pagination') ?>
-                              <!-- <div class="card-footer clearfix">
-                                   <ul class="pagination pagination-sm m-0 float-right">
-                                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                                   </ul>
-                              </div> -->
                          </div>
                     </div>
                </div>
@@ -122,42 +113,3 @@
      </div>
 </div>
 <?= $this->endSection('content'); ?>
-<!-- <div id="newModalMekanik" class="modal fade">
-     <div class="modal-dialog">
-          <div class="modal-content">
-               <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    Hello world!
-               </div>
-               
-               <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>
-          </div>
-     </div>
-</div> -->
-
-<!-- sometime later, probably inside your on load event callback -->
-<!-- <script type="javascript">
-     $("#newModalMekanik").on("show", function() { // wire up the OK button to dismiss the modal when shown
-          $("#newModalMekanik a.btn").on("click", function(e) {
-               console.log("button pressed"); // just as an example...
-               $("#newModalMekanik").modal('hide'); // dismiss the dialog
-          });
-     });
-
-     $("#newModalMekanik").on("hide", function() { // remove the event listeners when the dialog is dismissed
-          $("#newModalMekanik a.btn").off("click");
-     });
-
-     $("#newModalMekanik").on("hidden", function() { // remove the actual elements from the DOM when fully hidden
-          $("#newModalMekanik").remove();
-     });
-
-     $("#newModalMekanik").modal({ // wire up the actual modal functionality and show the dialog
-          "backdrop": "static",
-          "keyboard": true,
-          "show": true // ensure the modal is shown immediately
-     });
-</script> -->
-
-
-<!-- end modal -->
