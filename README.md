@@ -13,9 +13,13 @@ and any database settings.
 ## Sistem Informasi Bengkel
 
 Disusun oleh 
+
 RENALDI D.K : https://github.com/informatika3052
+
 ADI NOVIANTO : https://github.com/adijempol
+
 ACHMAD ISWAHYUDI
+
 GERRY FERNANDO
 
 
@@ -31,11 +35,17 @@ saya masih belum bisa mengikuti materi yang diajarkan ,dulu namanya PBO (Pemogra
 
 ## Fitur
 Create , Read , Update, Delete 
+
 Halaman Mekanik , Part, Login dengan validasi
+
 Pembuatan Surat Perintah Kerja
+
 Request Order
+
 History Order
+
 Cetak/Print 
+
 Flash Data
 
 ## Terima Kasih Untuk Tuhan dan UD DORANG 
