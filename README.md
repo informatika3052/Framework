@@ -25,7 +25,7 @@ GERRY FERNANDO
 
 ## Mata Kuliah Pemograman Framework
 
-Sistem Informasi bengkel ini dbuat dengan Framework CodeIgniter 4 dan Untuk tampilan nya
+Sistem Informasi bengkel ini dibuat dengan Framework CodeIgniter 4 dan untuk tampilan nya
 kita menggunakan template dari Admin LTE , MSQL untuk DBMS nya.
 
 Cukup seru untuk proses pembuatan nya apalagi kita sama-sama baru mengenal yang nama nya framework
