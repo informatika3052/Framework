@@ -111,12 +111,6 @@ class Customer extends BaseController
                $validation = \Config\Services::validation();
                return redirect()->to(base_url('customer/spk'))->withInput()->with('validation', $validation);
           }
-          // session()->setFlashdata('pesan', 'Wrong password!');
-          // session()->setFlashdata('pesan', 'Wrong password!');
-          // session()->setFlashdata('pesan', 'Wrong password!');
-          // session()->setFlashdata('pesan', 'Wrong password!');
-          // session()->setFlashdata('pesan', 'Wrong password!');
-          // session()->setFlashdata('pesan', 'Wrong password!');
           $data = [
                'plat_number' => $this->mRequest->getVar('plat_number'),
                'cust_name' => $this->mRequest->getVar('cust_name'),
@@ -134,7 +128,12 @@ class Customer extends BaseController
           $this->Customer_model->insert($data);
           return redirect()->to(base_url('/customer/spk'));
      }
-
+     public function deleteSpk($id)
+     {
+          $this->Customer_model->delete($id);
+          session()->setFlashdata('flash', 'completed');
+          return redirect()->to(base_url('customer/'));
+     }
      // Method yang berfungi untuk requets order
      public function request()
      {

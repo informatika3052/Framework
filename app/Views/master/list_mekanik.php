@@ -24,13 +24,16 @@
                <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#newModalMekanik">
                     Add New Mekanik
                </button>
-               <?php if (session()->getFlashdata('pesan')) : ?>
-                    <div class="alert alert-dismissible fade show alert-success col-md-4 d-flex justify-content-between " role="alert">
+               <div class="flash-data" data-flashdata="<?= session()->getflashdata('flash'); ?>">
+
+               </div>
+               <?php if (session()->getFlashdata('flash')) : ?>
+                    <!-- <div class="alert alert-dismissible fade show alert-success col-md-4 d-flex justify-content-between " role="alert">
                          <p>
                               <?= session()->getFlashdata('pesan'); ?>
                          </p>
                          <button type="button" class="btn-closee ml-auto" data-dismiss="alert" aria-label="Close">X</button>
-                    </div>
+                    </div> -->
                <?php endif; ?>
                <div class="row">
                     <div class="col-md-8">

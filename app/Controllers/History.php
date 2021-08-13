@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Customer_model;
 use CodeIgniter\Database\Query;
+use App\Models\History_model;
 
 
 class History extends BaseController
@@ -13,6 +14,7 @@ class History extends BaseController
      {
           $this->mRequest = service("request");
           $this->Customer_model = new Customer_model();
+          $this->History_model = new History_model();
      }
 
      // Method yang berfungsi untuk menampilkan data berdasarkan dari id SPK
@@ -22,7 +24,7 @@ class History extends BaseController
           if (is_null(session()->get('login'))) {
                return redirect()->to(base_url('/home'));
           }
-          $dataSpk = $this->Customer_model->findAll();
+          $dataSpk = $this->History_model->findAll();
           $nameUser = session()->get('name');
 
           $data = [
@@ -34,15 +36,15 @@ class History extends BaseController
      }
      public function historySearch()
      {
-          $dataSpk = $this->Customer_model->findAll();
+          $dataSpk = $this->History_model->findAll();
           $nameUser = session()->get('name');
           $idSpk = $this->mRequest->getVar('id_spk');
           // dd($idSpk);
           $db      = \Config\Database::connect();
-          $builder = $db->table('spk');
+          $builder = $db->table('history');
           $builder->select('*');
-          $builder->join('req_order', 'req_order.id_spk= spk.id');
-          $builder->like('id', $idSpk);
+          $builder->join('req_order', 'req_order.id_spk= history.spk_id');
+          $builder->like('spk_id', $idSpk);
           $query = $builder->get()->getRowArray();
           // dd($query);
           $totalAkhir = $query['total'] + $query['akumulasi_total'];
@@ -50,7 +52,7 @@ class History extends BaseController
 
           //jika tidak request part ,maka jalankan baris dibawah  
           if (is_null($query)) {
-               $dataSpkByid = $this->Customer_model->find($idSpk);
+               $dataSpkByid = $this->History_model->find($idSpk);
                // dd($dataSpkByid);
 
                $data = [

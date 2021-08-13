@@ -34,11 +34,12 @@
                                         <thead>
                                              <tr>
                                                   <th style="width: 5%">#</th>
-                                                  <th style="width: 15%;">Plat Number</th>
+                                                  <th style="width: 10%;">Plat Number</th>
                                                   <th style="width: 20%;">Task</th>
-                                                  <th style="width: 10%;">Service Advisor</th>
+                                                  <th style="width: 15%;">Service Advisor</th>
                                                   <th style="width: 10%;">Mekanik</th>
-                                                  <th style="width: 10%;">Tanggal</th>
+                                                  <th style="width: 10%;">Date</th>
+                                                  <th style="width: 10%;">Action</th>
                                              </tr>
                                         </thead>
                                         <tbody>
@@ -51,6 +52,9 @@
                                                        <td><?= $spk['ser_advisor']; ?></td>
                                                        <td><?= $spk['mekanik']; ?></td>
                                                        <td><?= $spk['created_at']; ?></td>
+                                                       <td>
+                                                            <a href="<?= base_url('customer/deleteSpk/' . $spk['id']); ?>" class="btn btn-success mx-auto">Delete</a>
+                                                       </td>
                                                   </tr>
                                              <?php endforeach; ?>
                                         </tbody>

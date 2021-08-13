@@ -21,7 +21,7 @@
                                              <option selected class="part">Choose id</option>
                                              <?= $i = 1; ?>
                                              <?php foreach ($dataSpk as $ds) : ?>
-                                                  <option value="<?= $ds['id']; ?>"><?= $ds['id']; ?>
+                                                  <option value="<?= $ds['spk_id']; ?>"><?= $ds['spk_id']; ?>
                                                   </option>
                                              <?php endforeach; ?>
                                         </select>

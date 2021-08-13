@@ -108,7 +108,9 @@ class Master extends BaseController
           ];
           // dd($data);
           $this->Mekanik_model->insert($data);
-          session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
+
+          // session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
+          session()->setFlashdata('flash', 'Added');
           return redirect()->to(base_url('/master/mekanik'));
      }
      public function getUbah()
