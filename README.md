@@ -30,7 +30,7 @@ kita menggunakan template dari Admin LTE , MSQL untuk DBMS nya.
 
 Cukup seru untuk proses pembuatan nya apalagi kita sama-sama baru mengenal yang nama nya framework
 dan juga ini merupakan misi pembuktian pada dosen nya , chakss. Karena  dulu juga pernah di ampu namun sayang nya
-saya masih belum bisa mengikuti materi yang diajarkan ,dulu namanya PBO (Pemograman berorientasi objek).
+saya masih belum bisa mengikuti materi yang diajarkan hingga tak dapat nilai masksimal ,dulu namanya PBO (Pemograman Berorientasi Objek).
 
 
 ## Fitur
