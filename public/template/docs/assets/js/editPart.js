@@ -3,30 +3,25 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     // const part = document.querySelectorAll('.form-control');
-    const part = document.querySelectorAll('.tampil');
+    const tampilEditPart = document.querySelectorAll('.tampilEditPart');
 
 
-    part.forEach((a) => {
+    tampilEditPart.forEach((a) => {
         a.addEventListener('click', function (e) {
             // console.log('okkk');
             // e.preventDefault();
             const modalTitle = document.querySelector('.modal-title');
-            modalTitle.innerHTML = 'Edit Data Mekanik';
+            modalTitle.innerHTML = 'Edit Data Part';
 
             const modalFooter = document.querySelector('.modal-footer button[type=submit]');
             modalFooter.innerHTML = 'Update Data';
-            document.querySelector('.modal-body form').setAttribute('action', 'http://localhost:8080/master/editMekanik');
+            document.querySelector('.modal-body form').setAttribute('action', 'http://localhost:8080/master/editPart');
 
-            // console.log(curut);
-            // const id = parseInt(a.attributes['data-bs-id'].value);
-            // const id = e.target.value;
             console.log(a);
 
             const id = a.attributes['data-bs-id'].value;
-            console.log(id);
-            // const data = { id: id };
             (async () => {
-                const result = await fetch('http://localhost:8080/master/getUbah', {
+                const result = await fetch('http://localhost:8080/master/getUbahPart', {
                     method: 'POST', // or 'PUT'
                     headers: {
                         'Accept': 'application/json',
@@ -39,15 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 // console.log(content);
                 let jueson = JSON.parse(content);
                 console.log(jueson);
-                document.querySelector('#mekanikId').value = jueson.id_mekanik;
-                document.querySelector('#nameMekanik').value = jueson.name_mekanik;
-                document.querySelector('#divisi').value = jueson.divisi;
-
-                // const hr_part = document.querySelectorAll('.perPcs');
-                // hr_part.forEach((hr_child) => {
-                //     // console.log(hr_child);
-                //     hr_child.value = jueson.hr_part;
-                // })
+                document.querySelector('#kd_part').value = jueson.kd_part;
+                document.querySelector('#name_part').value = jueson.name_part;
+                document.querySelector('#hr_part').value = jueson.hr_part;
+                document.querySelector('#t_part').value = jueson.t_part;
             })();
 
         });

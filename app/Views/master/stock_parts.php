@@ -27,18 +27,19 @@
                     </div>
                <?php endif; ?>
                <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                          <div class="card">
                               <!-- /.card-header -->
                               <div class="card-body">
                                    <table class="table table-bordered">
                                         <thead>
                                              <tr>
-                                                  <th style="width: 10px">#</th>
-                                                  <th>ID Kode Part</th>
-                                                  <th style="width: 30%;">Name Part</th>
-                                                  <th>Harga Part</th>
-                                                  <th style=" width: 20%;">Total Part</th>
+                                                  <th style="width: 5%">#</th>
+                                                  <th style="width: 20%;">ID Kode Part</th>
+                                                  <th style="width: 25%;">Name Part</th>
+                                                  <th style="width: 25%;">Harga Part</th>
+                                                  <th style="width: 10%;">Total Part</th>
+                                                  <th style="width: 15%;">Action</th>
                                              </tr>
                                         </thead>
                                         <tbody>
@@ -51,6 +52,10 @@
                                                        <td><?= $p['name_part']; ?></td>
                                                        <td><?= $p['hr_part']; ?></td>
                                                        <td><?= $p['t_part']; ?></td>
+                                                       <td class="d-flex justify-content-between">
+                                                            <a href="<?= base_url('master/editPart/' . $p['kd_part']); ?>" class=" btn btn-warning tampilEditPart" data-toggle="modal" data-target="#newParts" data-bs-id="<?= $p['kd_part']; ?>">Edit</a>
+                                                            <a href="<?= base_url('master/deletePart/' . $p['kd_part']); ?>" class="btn btn-danger">Delete</a>
+                                                       </td>
                                                   </tr>
                                              <?php endforeach; ?>
                                         </tbody>
@@ -83,19 +88,19 @@
                          <!-- <input type="hidden" name="idMekanik" id="idMekanik"> -->
                          <div class="form-group">
                               <label for="exampleInputKode">Kode</label>
-                              <input type="text" class="form-control" id="exampleInputKode" name="kd_part" placeholder="Enter kode">
+                              <input type="text" class="form-control" id="kd_part" name="kd_part" placeholder="Enter kode">
                          </div>
                          <div class="form-group">
                               <label for="exampleInputName">Name</label>
-                              <input type="text" class="form-control" id="exampleInputName" name="name_part" placeholder="Enter name">
+                              <input type="text" class="form-control" id="name_part" name="name_part" placeholder="Enter name">
                          </div>
                          <div class="form-group">
                               <label for="exampleInputPrice">Price</label>
-                              <input type="text" class="form-control" id="exampleInputPrice" name="hr_part" placeholder="Enter price">
+                              <input type="text" class="form-control" id="hr_part" name="hr_part" placeholder="Enter price">
                          </div>
                          <div class="form-group">
                               <label for="exampleInputPrice">Total</label>
-                              <input type="text" class="form-control" id="exampleInputPrice" name="t_part" placeholder="Enter price">
+                              <input type="text" class="form-control" id="t_part" name="t_part" placeholder="Enter price">
                          </div>
                </div>
 

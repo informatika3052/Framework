@@ -68,7 +68,34 @@ class Master extends BaseController
           session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
           return redirect()->to(base_url('/master'));
      }
+     public function getUbahPart()
+     {
+          $json = file_get_contents('php://input');
+          $data = json_decode($json);
+          // echo $data;
+          echo json_encode($this->Parts_model->find($data));
+          die();
+     }
+     public function editPart()
+     {
+          $kd_part = $this->mRequest->getVar('kd_part');
+          // dd($id_mekanik);
+          $data = [
+               'name_part' => $this->mRequest->getVar('name_part'),
+               'hr_part' => $this->mRequest->getVar('hr_part'),
+               't_part' => $this->mRequest->getVar('t_part'),
+          ];
+          $this->Parts_model->update($kd_part, $data);
+          session()->setFlashdata('pesan', 'Data Berhasil Di Update !');
+          return redirect()->to(base_url('/master'));
+     }
 
+     public function deletePart($id)
+     {
+          $this->Mekanik_model->delete($id);
+          session()->setFlashdata('pesan', 'Data berhasil dihapus');
+          return redirect()->to(base_url('/master'));
+     }
      public function mekanik()
      {
           session();

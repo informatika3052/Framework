@@ -36,18 +36,18 @@
                     </div> -->
                <?php endif; ?>
                <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                          <div class="card">
                               <!-- /.card-header -->
                               <div class="card-body">
                                    <table class="table table-bordered" id="list-mekanik">
                                         <thead>
                                              <tr>
-                                                  <th style="width: 10px">#</th>
-                                                  <th>ID Mekanik</th>
+                                                  <th style="width: 5%">#</th>
+                                                  <th style="width: 15%;">ID Mekanik</th>
                                                   <th style="width: 30%;">Name</th>
-                                                  <th style="width: 20%;">Divisi</th>
-                                                  <th>Action</th>
+                                                  <th style="width: 30%;">Divisi</th>
+                                                  <th style="width: 10%;">Action</th>
                                              </tr>
                                         </thead>
                                         <tbody>
@@ -58,7 +58,8 @@
                                                        <td><?= $m['id_mekanik']; ?></td>
                                                        <td><?= $m['name_mekanik']; ?></td>
                                                        <td><?= $m['divisi']; ?></td>
-                                                       <td class="d-flex justify-content-between"><a href="<?= base_url('master/editMekanik/' . $m['id_mekanik']); ?>" class=" btn btn-warning tampil" data-toggle="modal" data-target="#newModalMekanik" data-bs-id="<?= $m['id_mekanik']; ?>">Edit</a>
+                                                       <td class="d-flex justify-content-between">
+                                                            <a href="<?= base_url('master/editMekanik/' . $m['id_mekanik']); ?>" class=" btn btn-warning tampil" data-toggle="modal" data-target="#newModalMekanik" data-bs-id="<?= $m['id_mekanik']; ?>">Edit</a>
                                                             <a href="<?= base_url('master/deleteMekanik/' . $m['id_mekanik']); ?>" class="btn btn-danger">Delete</a>
                                                        </td>
                                                   </tr>
